@@ -1,20 +1,20 @@
-# Using CodeLoom
+# CodeLoom
 
-CodeLoom is an AI-powered tool for analyzing and optimizing your codebase structure. Here's how to use it in your project:
+CodeLoom is an AI-powered tool for analyzing and optimizing your codebase structure. It provides insights into your code organization and suggests improvements for critical files.
 
 ## Installation
 
-1. Install CodeLoom globally using npm:
+Install CodeLoom globally using npm:
 
 ```bash
-npm install -g codeloom
+npm install -g @bilalpm/codeloom
 ```
 
 This makes the `codeloom` command available system-wide.
 
 ## Setup
 
-2. In your project root, create a `.env.local` file with your Gemini API key:
+In your project root, create a `.env.local` file with your Gemini API key:
 
 ```
 GEMINI_API_KEY=your_api_key_here
@@ -24,68 +24,91 @@ Make sure to replace `your_api_key_here` with your actual Gemini API key.
 
 ## Usage
 
-3. Navigate to your project directory in the terminal:
+Navigate to your project directory in the terminal:
 
 ```bash
 cd path/to/your/project
 ```
 
-4. Run CodeLoom:
+Run CodeLoom:
 
 ```bash
-codeloom
+codeloom <directories...>
 ```
 
-This will run CodeLoom with default settings, analyzing the `src` and `lib` directories and considering up to 3 critical files.
-
-5. To customize the analysis, you can use command-line options:
+For example:
 
 ```bash
-codeloom -d app,components,utils -m 5
+codeloom src lib
+```
+
+This will run CodeLoom on the `src` and `lib` directories with default settings.
+
+### Command-line Options
+
+Customize the analysis with these options:
+
+- `-m, --max-critical-files <number>`: Maximum number of critical files to analyze (default: 3)
+- `-o, --output-dir <path>`: Custom output directory for CodeLoom files (default: "./codeloom_out")
+- `-l, --max-lines <number>`: Maximum number of lines per file to include in analysis (default: 500)
+
+Example with options:
+
+```bash
+codeloom src app -m 5 -l 1000 -o ./codeloom-analysis
 ```
 
 This command will:
 
-- Analyze the `app`, `components`, and `utils` directories
+- Analyze the `src` and `app` directories
 - Consider up to 5 critical files for optimization
-
-Available options:
-
-- `-d, --directories <dirs>`: Comma-separated list of directories to analyze (default: "src,lib")
-- `-m, --max-critical-files <number>`: Maximum number of critical files to analyze (default: 3)
+- Include files up to 1000 lines long
+- Output results to `./codeloom-analysis` directory
 
 ## Output
 
-After running CodeLoom, you'll find a new `codeloom_out` directory in your project root. It will contain:
+After running CodeLoom, you'll find a new output directory (default: `codeloom_out`) in your project root. It will contain:
 
 - `codeloom-map.json`: A JSON representation of your codebase structure
 - `codeloom-output.txt`: Concatenated content of all analyzed files
 - `organization-suggestions.json`: AI-generated suggestions for codebase organization
 - `critical-files-suggestions.json`: List of critical files identified by AI
 
-Additionally, CodeLoom will have optimized the identified critical files directly in your project.
+CodeLoom will also provide optimization suggestions for the identified critical files.
 
 ## Example Workflow
 
 1. Install CodeLoom:
 
    ```bash
-   npm install -g codeloom
+   npm install -g @bilalpm/codeloom
    ```
 
 2. Set up your API key in `.env.local`
 
-3. Run CodeLoom on your React project:
+3. Run CodeLoom on your project:
 
    ```bash
-   cd my-react-app
-   codeloom -d src,components -m 5
+   cd my-project
+   codeloom src components -m 5 -l 800
    ```
 
 4. Review the suggestions in `codeloom_out/organization-suggestions.json`
 
-5. Check the optimized files in your project structure
+5. Check the optimization suggestions for critical files
 
-6. Commit the changes you agree with and continue development
+6. Apply the changes you agree with and continue development
 
 By following these steps, you can easily integrate CodeLoom into your development workflow to get AI-powered suggestions for code organization and optimization.
+
+## Note
+
+CodeLoom is an AI-powered tool and its suggestions should be reviewed by a developer before implementation. Always back up your code before applying any automated changes.
+
+## License
+
+MIT
+
+## Author
+
+Bilal Tahir
