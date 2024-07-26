@@ -1,5 +1,7 @@
 # CodeLoom
 
+![CodeLoom Icon](./loom.webp)
+
 CodeLoom is an AI-powered tool for analyzing and optimizing your codebase structure. It provides insights into your code organization and suggests improvements for critical files.
 
 ## Installation and Usage
