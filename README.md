@@ -44,20 +44,20 @@ Replace `your_api_key_here` with your actual Gemini API key.
 Analyze specific directories:
 
 ```bash
-codeloom src lib  # If installed globally
-npx @bilalpm/codeloom src lib  # Using npx
+codeloom app lib  # If installed globally
+npx @bilalpm/codeloom app lib  # Using npx
 ```
 
 Use command-line options:
 
 ```bash
-codeloom src app -m 5 -l 1000 -o ./codeloom-analysis  # If installed globally
-npx @bilalpm/codeloom src app -m 5 -l 1000 -o ./codeloom-analysis  # Using npx
+codeloom app -m 5 -l 1000 -o ./codeloom-analysis  # If installed globally
+npx @bilalpm/codeloom app components -m 5 -l 1000 -o ./codeloom-analysis  # Using npx
 ```
 
 This command will:
 
-- Analyze the `src` and `app` directories
+- Analyze the `app` and `components` directories
 - Consider up to 5 critical files for optimization
 - Include files up to 1000 lines long
 - Output results to `./codeloom-analysis` directory
