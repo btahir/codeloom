@@ -2,7 +2,7 @@
 
 ![CodeLoom Icon](./loom.webp)
 
-CodeLoom is an AI-powered tool for analyzing and optimizing your codebase structure. It provides insights into your code organization and suggests improvements for critical files.
+CodeLoom is an AI-powered tool for analyzing and optimizing your codebase structure. Leveraging Google Gemini models, known for their long context capabilities, it provides deep insights into your code organization and offers targeted suggestions for improving critical files.
 
 ## Installation and Usage
 
