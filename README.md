@@ -53,8 +53,9 @@ npx @bilalpm/codeloom app lib  # Using npx
 Use command-line options:
 
 ```bash
-codeloom app -m 5 -l 1000 -o ./codeloom-analysis  # If installed globally
-npx @bilalpm/codeloom app components -m 5 -l 1000 -o ./codeloom-analysis  # Using npx
+codeloom app -m 5 -l 1000 -o ./codeloom-analysis -n gemini-1.5-flash-latest  # If installed globally
+npx @bilalpm/codeloom app components -m 5 -l 1000 -o ./codeloom-analysis -n gemini-1.5-flash-latest  # Using npx
+
 ```
 
 This command will:
@@ -63,12 +64,14 @@ This command will:
 - Consider up to 5 critical files for optimization
 - Include files up to 1000 lines long
 - Output results to `./codeloom-analysis` directory
+- Use the gemini-1.5-flash-latest model for analysis
 
 ### Command-line Options
 
 - `-m, --max-critical-files <number>`: Maximum number of critical files to analyze (default: 3)
 - `-o, --output-dir <path>`: Custom output directory for CodeLoom files (default: "./codeloom_out")
 - `-l, --max-lines <number>`: Maximum number of lines per file to include in analysis (default: 500)
+- `-n, --model-name <name>`: Model name to use for analysis (default: "gemini-1.5-flash-latest")
 
 ## Output
 

@@ -2,14 +2,10 @@
 
 import { program } from 'commander'
 import path from 'path'
-import { fileURLToPath } from 'url'
 import dotenv from 'dotenv'
 import fs from 'fs/promises'
 import { runCodeLoom } from '../lib/index.mjs'
 import chalk from 'chalk'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 
 dotenv.config({ path: path.join(process.cwd(), '.env.local') })
 
@@ -52,6 +48,11 @@ program
     'Maximum number of lines per file to include in analysis',
     '500'
   )
+  .option(
+    '-n, --model-name <name>',
+    'Model name to use for analysis',
+    'gemini-1.5-flash-latest'
+  )
   .action(async (directoriesArg, options) => {
     printHeader()
 
@@ -68,6 +69,7 @@ program
       )
       const maxCriticalFiles = parseInt(options.maxCriticalFiles, 10)
       const maxLines = parseInt(options.maxLines, 10)
+      const modelName = options.modelName
 
       console.log(chalk.green('Configuration:'))
       console.log(
@@ -82,6 +84,7 @@ program
         chalk.green('- Maximum lines per file:'),
         chalk.yellow(maxLines)
       )
+      console.log(chalk.green('- Model name:'), chalk.yellow(modelName))
       console.log(chalk.green('- Output directory:'), chalk.yellow(outputDir))
       console.log()
 
@@ -90,6 +93,7 @@ program
         maxCriticalFiles,
         outputDir,
         maxLines,
+        modelName,
         (stage, message) => {
           console.log(chalk.blue(`\n${stage}:`), chalk.white(message))
         }
