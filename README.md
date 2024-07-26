@@ -1,14 +1,14 @@
 # CodeLoom
 
-![CodeLoom Icon](./cover.webp)
+<div align="center">
+<img src="https://github.com/btahir/codeloom/blob/main/cover.webp">
+<p align="center">
+  <a href="https://www.loom.com/share/c7bc4c510b7d40009933af3736a46c8f?sid=0f41e692-0c95-4c44-ba8b-25691aaffe6e">Loom Video</a> •
+  <a href="https://twitter.com/deepwhitman">Follow me on Twitter</a>
+</p>
+</div>
 
 CodeLoom is an AI-powered tool for analyzing and optimizing your codebase structure. Leveraging Google Gemini models, known for their long context capabilities, it provides deep insights into your code organization and offers targeted suggestions for improving critical files.
-
-## Quick Introduction Video
-
-For a quick overview of CodeLoom and how to use it, check out this short video:
-
-[CodeLoom Introduction and Tutorial](https://www.loom.com/share/c7bc4c510b7d40009933af3736a46c8f?sid=0f41e692-0c95-4c44-ba8b-25691aaffe6e)
 
 ## Installation and Usage
 
