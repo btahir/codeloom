@@ -1,6 +1,6 @@
 {
   "name": "@bilalpm/codeloom",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "AI-powered code analysis and optimization tool",
   "main": "lib/index.mjs",
   "type": "module",
