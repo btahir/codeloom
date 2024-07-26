@@ -2,60 +2,57 @@
 
 CodeLoom is an AI-powered tool for analyzing and optimizing your codebase structure. It provides insights into your code organization and suggests improvements for critical files.
 
-## Installation
+## Installation and Usage
 
-Install CodeLoom globally using npm:
+You can use CodeLoom either by installing it globally or by running it directly with npx.
+
+### Global Installation
+
+1. Install CodeLoom globally using npm:
+
+   ```bash
+   npm install -g @bilalpm/codeloom
+   ```
+
+2. Use CodeLoom in any project:
+
+   ```bash
+   cd path/to/your/project
+   codeloom <directories...>
+   ```
+
+### Using npx (No Installation Required)
+
+If you prefer not to install CodeLoom globally, you can use npx to run it directly:
 
 ```bash
-npm install -g @bilalpm/codeloom
+npx @bilalpm/codeloom <directories...>
 ```
-
-This makes the `codeloom` command available system-wide.
 
 ## Setup
 
-In your project root, create a `.env.local` file with your Gemini API key:
+Before using CodeLoom, create a `.env.local` file in your project root with your Gemini API key:
 
 ```
 GEMINI_API_KEY=your_api_key_here
 ```
 
-Make sure to replace `your_api_key_here` with your actual Gemini API key.
+Replace `your_api_key_here` with your actual Gemini API key.
 
-## Usage
+## Usage Examples
 
-Navigate to your project directory in the terminal:
+Analyze specific directories:
 
 ```bash
-cd path/to/your/project
+codeloom src lib  # If installed globally
+npx @bilalpm/codeloom src lib  # Using npx
 ```
 
-Run CodeLoom:
+Use command-line options:
 
 ```bash
-codeloom <directories...>
-```
-
-For example:
-
-```bash
-codeloom src lib
-```
-
-This will run CodeLoom on the `src` and `lib` directories with default settings.
-
-### Command-line Options
-
-Customize the analysis with these options:
-
-- `-m, --max-critical-files <number>`: Maximum number of critical files to analyze (default: 3)
-- `-o, --output-dir <path>`: Custom output directory for CodeLoom files (default: "./codeloom_out")
-- `-l, --max-lines <number>`: Maximum number of lines per file to include in analysis (default: 500)
-
-Example with options:
-
-```bash
-codeloom src app -m 5 -l 1000 -o ./codeloom-analysis
+codeloom src app -m 5 -l 1000 -o ./codeloom-analysis  # If installed globally
+npx @bilalpm/codeloom src app -m 5 -l 1000 -o ./codeloom-analysis  # Using npx
 ```
 
 This command will:
@@ -65,6 +62,12 @@ This command will:
 - Include files up to 1000 lines long
 - Output results to `./codeloom-analysis` directory
 
+### Command-line Options
+
+- `-m, --max-critical-files <number>`: Maximum number of critical files to analyze (default: 3)
+- `-o, --output-dir <path>`: Custom output directory for CodeLoom files (default: "./codeloom_out")
+- `-l, --max-lines <number>`: Maximum number of lines per file to include in analysis (default: 500)
+
 ## Output
 
 After running CodeLoom, you'll find a new output directory (default: `codeloom_out`) in your project root. It will contain:
@@ -73,33 +76,9 @@ After running CodeLoom, you'll find a new output directory (default: `codeloom_o
 - `codeloom-output.txt`: Concatenated content of all analyzed files
 - `organization-suggestions.json`: AI-generated suggestions for codebase organization
 - `critical-files-suggestions.json`: List of critical files identified by AI
+- `optimized_files/`: Directory containing optimized versions of critical files
 
-CodeLoom will also provide optimization suggestions for the identified critical files.
-
-## Example Workflow
-
-1. Install CodeLoom:
-
-   ```bash
-   npm install -g @bilalpm/codeloom
-   ```
-
-2. Set up your API key in `.env.local`
-
-3. Run CodeLoom on your project:
-
-   ```bash
-   cd my-project
-   codeloom src components -m 5 -l 800
-   ```
-
-4. Review the suggestions in `codeloom_out/organization-suggestions.json`
-
-5. Check the optimization suggestions for critical files
-
-6. Apply the changes you agree with and continue development
-
-By following these steps, you can easily integrate CodeLoom into your development workflow to get AI-powered suggestions for code organization and optimization.
+CodeLoom will provide optimization suggestions for the identified critical files, saving the optimized versions in the `optimized_files/` directory while preserving the original file structure.
 
 ## Note
 
